@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Modal Harmony Chart Generator — Dorian / Phrygian / Lydian / Mixolydian / Aeolian</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Modal Harmony Chart Generator</h1>
+  <div class="top">
+    <div class="input">
+      <label for="root">Root note</label>
+      <input id="root" type="text" value="C" maxlength="3" />
+      <button id="go" title="Generate">Generate</button>
+    </div>
+    <div class="small">Enter note like <span class="note">C</span>, <span class="note">F#</span>, or <span class="note">Bb</span>.</div>
+  </div>
+
+  <div id="grid" class="grid"></div>
+
+    <div id="patch-notes" class="patch-notes">
+    <button id="patch-toggle" class="patch-toggle">Patch Notes ⯈</button>
+    <div id="patch-content" class="patch-content">
+      <h3>New Stuff</h3>
+      <ul>
+        <li>I believe that flats and sharps should be working for scales now. ♯4 was a lil bitch, but we got it workin' now.</li>
+        <br>
+        <li>Scale names now include tonic (e.g., “C Dorian” when root note is set to C, and etc).</li>
+         <br>
+      </ul>
+
+       <h3>What's Not Working -- Stuff Imma Add</h3>
+       <ul>
+        <li>I stil can't get b2 to work for flat source notes (e.g. Bb, Eb, Ab, etc.). It just wants to say B instead of Cb. Also if I put in Fb or Cb, it just automatically goes for E and B, so for now those just won't work. This is the same for B# and E# too.</li>
+         <br>
+        <li>Maybe code in quiz mode?? 🤔 Quizlet style auto generated question, ask for anything regarding each mode. (e.g., "which one of these is note a characteristic chord?" or "what is the avoid chord", or "what is the characteristic note in G dorian", etc..)</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+    Formulaic generator: characteristic degrees used — Dorian = 6, Phrygian = ♭2, Lydian = ♯4, Mixolydian = ♭7, Aeolian = ♭6.
+    Tonic chord qualities forced: Dorian/Phrygian/Aeolian → -7, Lydian → Maj7, Mixolydian → Dom7.
+  </footer>
+
+<script src="script.js"></script>
+<script src="notes.js"></script>
+</body>
+</html>
