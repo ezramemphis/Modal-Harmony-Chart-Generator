@@ -296,3 +296,5 @@ document.getElementById('root').addEventListener('keydown', e=> { if(e.key === '
 
 // initial render
 render(document.getElementById('root').value || 'C');
+
+// just adding this note here to check if I repush the code, will I get my checkmark and the website actually publish in the pages? Cuz this shi just don't want to work.
