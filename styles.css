@@ -74,6 +74,75 @@ button {
   color: white;
 }
 
+img {
+  display: block;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+.image-row {
+  display: flex;
+  gap: 12px;          /* space between images */
+  align-items: center;
+}
+
+
+
+.turtle-container {
+  position: relative;
+  display: inline-block; /* keeps it next to other images if needed */
+}
+
+.peter {
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* hidden by default */
+.speech-bubble {
+  position: absolute;
+  bottom: 80%;              /* place above the image */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #000000;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* little triangle */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+/* show on hover */
+.turtle-container:hover .speech-bubble {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+
 
 
 
@@ -150,3 +219,13 @@ button {
     order: 99;
   }
 }
+
+
+
+
+
+
+
+
+
+
