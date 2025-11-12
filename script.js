@@ -87,6 +87,35 @@ const characteristicMap = {
     {deg:'♭VII', quality:'Maj7', asterisk:true}
   ],
   Phrygian: [
+    {deg:'♭II', quality:'Maj7'},
+    {deg:'♭III', quality:'7', asterisk:true},
+    {deg:'♭VII', quality:'-7'}
+  ],
+  Lydian: [
+    {deg:'II', quality:'7'},
+    {deg:'V', quality:'Maj7', asterisk:true},
+    {deg:'VII', quality:'-7'}
+  ],
+  Mixolydian: [
+    {deg:'I', quality:'7', asterisk:true},
+    {deg:'V', quality:'-7'},
+    {deg:'♭VII', quality:'Maj7'}
+  ],
+  Aeolian: [
+    {deg:'IV', quality:'-7'},
+    {deg:'♭VI', quality:'Maj7'},
+    {deg:'♭VII', quality:'7', asterisk:true}
+  ]
+};
+
+// --- Avoid Progression Map --- //
+const avoidProgressionMap = {
+  Dorian: [
+    {deg:'I', quality:'-7'},
+    {deg:'IV', quality:'7'},
+    {deg:'♭VII', quality:'Maj7', asterisk:true}
+  ],
+  Phrygian: [
     {deg:'♭VII', quality:'-7'},
     {deg:'♭III', quality:'7', asterisk:true},
     {deg:'♭VI', quality:'Maj7'}
@@ -169,6 +198,12 @@ function render(rootInput){
       return `<span class="chord"><span class="rnum">${ch.deg}${asterisk}</span><span class="name">${note} ${ch.quality}</span></span>`;
     }).join('');
 
+    const avoidProgList = avoidProgressionMap[modeName].map(ch=>{
+      const note = getNoteByRoman(rootIdx, ch.deg, preferFlat);
+      const asterisk = ch.asterisk?'*':'';
+      return `<span class="chord"><span class="rnum">${ch.deg}${asterisk}</span><span class="name">${note} ${ch.quality}</span></span>`;
+    }).join('');
+
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
@@ -195,8 +230,13 @@ function render(rootInput){
 
       <div class="section">
         <div class="line"><div class="label">Avoid chord:</div><div class="value">${avoidSym} — ${avoidLabel}</div></div>
-        <div class="hint small" style="margin-top:8px;">Avoid to preserve ${modeName} focus.</div>
       </div>
+
+      <div class="section">
+        <div class="label">Avoid progression</div>
+        <div style="margin-top:8px;">${avoidProgList}</div>
+      </div>
+      <div class="hint small" style="margin-top:8px;">Avoid to preserve ${modeName} focus.</div>
     `;
     grid.appendChild(card);
   }
