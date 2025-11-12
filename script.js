@@ -189,7 +189,8 @@ function render(rootInput){
       <div class="section">
         <div class="line"><div class="label">Mode:</div><div class="value">${modeName}</div></div>
         <div class="line"><div class="label">Characteristic note (${meta.char}):</div><div class="value">${charNote}</div></div>
-        <div class="line"><div class="label">Tonic chord:</div><div class="value">${root} — <span class="small">${tonicQuality[modeName]}</span></div></div>
+        <div class="line"><div class="label">Tonic chord:</div><div class="value">${root}${tonicQuality[modeName]}</div></div>
+
       </div>
 
       <div class="section">
