@@ -59,7 +59,10 @@ footer{margin-top:18px; font-size:13px; color:var(--muted);}
   .top{flex-direction:column; align-items:flex-start;}
 }
 
-
+button {
+  background-color: rgb(50, 42, 103);
+  color: white;
+}
 
 
 
